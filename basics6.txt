@@ -1,0 +1,29 @@
+DiskSpace::
+df -h
+df -h |egrep -v "tempfs"
+df -h |egrep -v "tempfs" |tail _n+2
+df -h |egrep -v "tempfs"|tail -n+2 |wak '{print $5}'
+df -h |egrep -v "tempfs"|tail -n+2 |wak '{print $5}'|cut -d '%'
+-f1
+vi checkdisk
+.....................................
+status of total number of files(Send alert if files are less than 50)
+ls -l
+script to comprision
+schedule and nofify
+touch file(1..20).txt
+..........create system inventory...(step by step user input)...
+.....Script with pre-defind information
+#!/bin/bash
+##############################
+..........Getting online Help...
+use all  online resourses
+google
+bing
+yahoo
+quora.,
+.precise search
+.2nd opinion
+.Ask questions
+.craete documentation
+.

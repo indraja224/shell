@@ -1,0 +1,64 @@
+1)mkdir test
+mkdir -vp test
+2)rm labelx,txt
+rm -f lablex.txt
+3)rm -i *.log
+yrm(){ D=/tmp/$(date +%Y%m%d%H%M%S); mkdir -p $D; mv "$@" $D && echo "moved to $D ok"; }
+
+The mv command's function is used to move files or change file names. It is a commonly used command on Linux systems and is often used to back up files or directories.
+
+4)move-->mv   labex.log   zhou.log
+5)copy--->cp   labex.log   zhou.log
+6)cat command::
+
+The function of the cat command is to output a file or standard input combination to standard output. 
+This command is often used to display the contents of a file, or to link several files together, or to 
+read and display content from standard input. It is often used in conjunction with redirection symbols.
+
+7)line number
+nl -n ln labex.log
+
+8)Relative and obsolute paths
+9)touch ApacheScript
+-rw-r-r
+chmod a+x ApacheScript
+-rwxr-xr-x
+10)
+.............Script Formatting...................
+>Define Shell
+  #!/bin/bash
+>coments(#)
+>Define Variables
+>commands(echo, cp, for etc)
+......pwd
+vi\vim ApacheScript
+#!/bin/bash
+#purpose testing script format
+#date:july 20 2021
+#modification : july 20 2021
+a='my name is indraja'
+echo $a
+date 
+df -h
+tab 
+                 if()
+                  echo
+                   else
+                    echo
+...............sequence of Script execution............
+cmd1
+cmd2
+cmd3
+run from top to bottom
+................first script..........
+vi helloworld
+i-->insert
+Echo 
+echo "hello world"
+echo
+
+esc
+
+:wq
+/root/scripts/helloworld
+.....................................

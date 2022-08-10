@@ -1,0 +1,95 @@
+....scheduling and notifications.
+cnontab -e
+12 20 * * * /root/myscripts > output
+....Scripts To delete old files....
+
+Crete script that will delete old files
+create a files with older timestampsfind and delete files olderthan 90 days
+find and rename all old files
+whoami
+/root/myscripts
+ls -l
+craete older files
+touch -d "thu,1 jan 2021 12:00:00" a
+ls -ltr
+find /root/myscripts -mtime +90 -exec ls -l {} \;
+bott
+vi delete_allfiles
+find /root/myscripts -mtime +90 -exec rm {} \;
+rename old files
+find /root/myscripts -mtime +90 -exec mv {} {}.old \;
+.......script t backupv files ...........
+
+craete bacup of /etc and /var directories using tar command
+compress the backup .tar file using gzip command
+write script to automate the tasks
+pwd
+from /root we can backup
+tar cvf /temp/backup.tar /etc /var
+ls -ltr /temp/backup.tar
+gzip /temp/backup.tar
+bot
+vi backup
+tar cvf /temp/backup.tar /etc /var
+gzip backup.tar
+find /temp/backup.tar.
+gz -mtime -1 -type f -print 
+if [$? -eq 0]
+then 
+echo backup was created
+echo Archiving Backup
+
+scp /temp/backup.tar.gz root@localhost :/path
+else 
+echo failed
+...................
+
+for loops scripts for file system -1.....
+multiple scripts..
+simple counting
+create multiple files with user input
+Assign write permission to files
+Assign write permission to files with total time it will taken
+
+,,..whoami
+/root/myscripts
+vi simplecount
+#!/bin/bash
+for i in {1..20}
+do
+echo $i
+sleep 1
+done
+ii)vi createfiles
+#!/bin/bash
+for i in {1..10}
+do 
+touch indraja.$i
+done
+iii)how many files do u want to create
+vi userinput_files
+
+echo "how many files do u want to create"
+read t
+echo
+echo plaese enter the start name of files
+read m
+do
+for i in $(seq 1..$t)
+touch $m.$t
+done
+
+Assign write permissions to files
+for  i in imran.*
+do echo Assigning write per to $i
+chmod a+x $i
+sleep 1
+done
+
+total=ls-l imran* | wc -l
+
+....
+
+
+
+

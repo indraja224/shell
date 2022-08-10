@@ -1,0 +1,37 @@
+...........for loops scripts for file system-2..
+multiple scripts
+rename all*.txt files extention to .none
+check to see  if files exist
+...........
+whami
+vi renamefiles
+#!/bin/bash
+# this script will remane files ending with .txt
+for i in *.txt
+do mv i $(i.txt).none
+done
+touch imran.txt indraja.txt
+.................checking files.......
+Files="/etc/password
+/etc/gropu
+/etc/shadow
+/etc/nsswitch.conf
+/etc/sshd_ssh_config
+/ect/fake"
+echo 
+for file in $Files
+do
+if(! -e $file)
+then
+echo $file do not exist
+echo
+fi
+done
+...........copying files to remote mechines...........
+................Directory assignment.......
+Directies in /home
+users in etc/passwd
+match users from /etc/password to /home/DIR
+.............Disk space status check.................
+find disk space using df command
+Different scripts taht will filter the output and comapare (long)

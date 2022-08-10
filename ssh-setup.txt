@@ -1,0 +1,23 @@
+Internet Connection -->ping google.com
+Set Up  Host Names --> sudo nano /etc/hostname
+                  type-->nameofserver
+                  press ctrl+x 
+                   press y for saving
+                   exit cttl+x
+ sudo nano /etc/hosts  
+for ip address      ------>ifconfig (if not there install package)
+note the interfaces  --> (ex: enp0s8)
+setting static ip   ---------------->sudo nano /etc/network/interfaces
+type                     -->auto enp0s8
+                            iface enp0s8 inet static
+                             address 192.168.56.100
+                              netmask 255.255.255.0
+ctrl+x
+y
+sudo reboot
+
+check hostnames -->hostname
+check ip set ---->ping 192.168.56.100
+if ping responds -->sucsess
+
+                         

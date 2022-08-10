@@ -1,0 +1,129 @@
+
+pwd
+ls
+whoami
+date
+cal
+touch a b cls
+..............Basic Admin Taks.........
+top--->like taskbar
+df -h-->memory
+free -m
+uptime
+iostat
+............variables..........
+p=pwd
+l=ls
+w=whoami
+d=date
+c=cal 2018
+run by
+$p
+$l
+$w....etc
+.....................input/output........
+read--reading input
+echo-->output
+...............conditional/if/else.....
+if staement
+if [ 100 -eq 100 ]
+then
+.....
+else
+,....
+.......................case statements.......
+echo
+echo enter your choices
+a=list of files and directory
+b=users loged in
+c=uptime
+d=non of above
+read choice
+case $choice in
+a)ls;;
+b)who;;
+c)uptime;;
+d)echo none
+esac
+.................loops..........
+while command1 ; # this is loop1, the outer loop
+do
+   Statement(s) to be executed if command1 is true
+
+   while command2 ; # this is loop2, the inner loop
+   do
+      Statement(s) to be executed if command2 is true
+   done
+
+   Statement(s) to be executed if command1 is true
+done
+..........................for loop.........
+#!/bin/sh
+
+for var in 0 1 2 3 4 5 6 7 8 9
+do
+   echo $var
+done
+Upon execution, you will receive the following result −
+
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+.................exit codes.....
+0=ok or sucess
+1=minor problem
+2=serious
+3-255
+echo $?--->shows the error code of previous directory
+echo pwd
+echo $?
+0
+echo pwdd
+echo $?
+1-255
+..............Accessing data from file....
+whoami
+pwd
+mkdir profes_Scripts
+cp /var/log/messages destinationFile
+chown user file
+chgrp user file
+vi pulldate
+grep -i error /root/case-->pull all errors from specified directory
+grep -i warn /root/case-->pull all warnings from specified
+grep -i fail /root/case-->pull all failed related lines from specified  
+
+grep -i error /root/case-->pull all errors from specified >/root/outputfilr
+cat outputfile
+we can emials this error messages
+./pull-warn | grep "aug 27" |wc -l
+.............admin commands.
+vi admin
+#echo format teh output of admin commans
+date 
+uptime
+df -h
+./admin | awk '{print $1}'
+         | awk '{print $2}'
+          |grep root
+.......check other servers connectivity......
+vi pingScripts
+ping -cl 192.168.1.1
+if [$? -eq 0]
+  then echo ok
+
+
+
+............Script Scheduling and  notification......
+Schedule Script through "Cron" job
+notification through email/sendmail
+
+
+

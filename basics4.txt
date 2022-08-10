@@ -1,0 +1,58 @@
+#!bin/bash                                                       
+                                                                 .
+                                                                 .
+bash
+     if [$? -eq 0]
+     then
+     read HostName
+       ssh root@HostName 'bash -s' <  ./process_check.txt
+        
+..............................................................
+vi process_check
+process_check
+
+process_check (){
+path1= /usr/local/bin/monproc Qmaster
+if [$path -eq 0]
+echo process is running
+
+else 
+run /usr/local/bin/startapps -n
+process_check
+}
+
+.....................................................................................2nd way....................
+
+#!bin/bash
+bash
+echo enter how many servers you want to run the script
+read no_of_server
+echo enter the server names
+read servers.txt
+..........logged in users
+#all the users alooged today
+today=date | awk '{print $1 $2 $3}'
+last |grep "$today"
+###by taking users choice....
+echo "enter the day (for ex monday)"
+read d
+echo "plaese enter month"
+read m
+echo "please enter date"
+read date
+last | grep "$d $m $date"|awk '{print $1}'
+
+..........central logging......
+wordlog 
+script to trace /var/log/messages file
+run the script in the backgroud
+user/admin notificatio
+schedule the script through cronjob
+create a user accunt....
+error out if user exist
+add user description
+add user ID option
+error out if user id exsist
+.............................
+disable inactive users
+run command sto identify users
