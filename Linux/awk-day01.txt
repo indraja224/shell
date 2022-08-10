@@ -1,0 +1,64 @@
+ ######################### Awk Command ################################
+  758  cat >uersinfo.txt
+  759  cat usersinfo.txt
+  760  cp uersinfo usersinfo.txt
+  761  mv uersinfo usersinfo.txt
+  762  cat uersinfo.txt
+  763  man cp
+  764  cp -f uersinfo usersinfo.txt
+  765  cp -f uersinfo.txt usersinfo.txt
+  766  awk{print$0}
+  767  awk'{print$0}' usersinfo.txt
+  768  awk '{print$0}' usersinfo.txt
+  769  awk '{print$1}' usersinfo.txt
+  770  awk '{print$2}' usersinfo.txt
+  771  awk '{print$2,$1}' usersinfo.txt
+  772  awk '{print$2,$1 "available"}' usersinfo.txt
+  773  awk '{print$2,$1 "    available"}' usersinfo.txt
+  774  clear
+  775  awk '{print$2,$1 }' usersinfo.txt
+  776  awk '/35k/ {print$2,$1 }' usersinfo.txt
+  777  awk '/35k/ {print$1 }' usersinfo.txt
+  778  awk ' {print$0 }' usersinfo.txt
+  779  awk '\^i\ {print$0 }' usersinfo.txt
+  780  awk '\^i$\ {print$0 }' usersinfo.txt
+  781  awk '/^i$/ {print$0 }' usersinfo.txt
+  782  awk '/^i/ {print$0 }' usersinfo.txt
+  783  awk '/^[a,e,i,o,u]/ {print$0 }' usersinfo.txt
+  784  awk '/^[a,e,i,o,u,l]/ {print$0 }' usersinfo.txt
+  785  awk '$2 ~ /dxc/ {print $0}' usersinfo.txt
+  786  awk '$2 ~! /dxc/ {print $0}' usersinfo.txt
+  787  awk '$2 !~ /dxc/ {print $0}' usersinfo.txt
+  788  awk '$2 ~ /acc/ {print $0}' usersinfo.txt
+  789  clear
+  790  awk '$3> 90 {print$1}'
+  791  awk '{print$3}'
+  792  awk '$3> 90 {print$1}' usersinfo.txt
+  793  awk '$3> 25k {print$1}' usersinfo.txt
+  794  awk '$3 > 30k && $3 !~ /name/ {print$1}' usersinfo.txt
+  795  awk '$3 > 30k && $3 !~ /sal/ {print$1}' usersinfo.txt
+  796  awk '$3 > 30k && $2 ~ /dxc/ {print$1}' usersinfo.txt
+  797  cat uersinfo.txt
+  798  awk '$2 > 30k && $3 ~ /dxc/ {print$1}' usersinfo.txt
+  799  clear
+  800  gf -h
+  801  awk '{print $0}'
+  802  df -h |awk '{print $0}'
+  803  df -h |awk '/NR==2/ {print $0}'
+  804  df -h |awk 'NR==2 {print $0}'
+  805  df -h |awk 'NR>2 {print $0}'
+  806  ## command | awk pattern
+  807  df -h |awk 'NR==2 {print $0}'
+  808  df -h |awk 'NR==3 {print $0}'
+  809  df -h |awk 'NR==3 {print $4}'
+  810  df -h |awk 'NR==3 {print $4}'  | cut -d 'M' -f
+  811  df -h |awk 'NR==3 {print $4}'  | cut -d 'M' -f1
+  812  clear
+  813  vi uesrsinfo.txt
+  814  cat -n usersinfo.txt | awk '{print $2}'
+  815  cat -n usersinfo.txt | awk '{print $3}'
+  816  cat -n usersinfo.txt | awk ' FS =":"{print $3}'
+  817  cat usersinfo.txt
+  818  vi new
+  819  cat -n /etc/passwd | awk 'FS=":" {print $1}'
+  820  clear

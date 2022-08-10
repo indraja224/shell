@@ -1,0 +1,680 @@
+root@Linux-01:~/indraja# cut -b 3,4 second.txt | sort
+ f
+gl
+h
+h
+hl
+nt
+root@Linux-01:~/indraja# cut -b 3- second.txt
+h
+h
+glish
+hlish
+ from manthani
+nthani is my birth place
+root@Linux-01:~/indraja# cut -b -3 second.txt
+ish
+Ish
+Eng
+enh
+am
+Man
+root@Linux-01:~/indraja# echo "heloo" | cut -d e
+cut: you must specify a list of bytes, characters, or fields
+Try 'cut --help' for more information.
+root@Linux-01:~/indraja# echo "heloo" | cut -d "e"
+cut: you must specify a list of bytes, characters, or fields
+Try 'cut --help' for more information.
+root@Linux-01:~/indraja# echo "heloo" | cut -d "e" f1
+cut: you must specify a list of bytes, characters, or fields
+Try 'cut --help' for more information.
+root@Linux-01:~/indraja# echo "heloo" | cut -d "e" -f1
+h
+root@Linux-01:~/indraja# echo "heloo" | cut -d "e" -f3
+
+root@Linux-01:~/indraja# echo "heloo" | cut -d "e" -f2
+loo
+root@Linux-01:~/indraja# clear
+root@Linux-01:~/indraja# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            1.7G     0  1.7G   0% /dev
+tmpfs           343M  592K  343M   1% /run
+/dev/sda1        29G  1.8G   28G   7% /
+tmpfs           1.7G     0  1.7G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           1.7G     0  1.7G   0% /sys/fs/cgroup
+/dev/sda15      105M  4.4M  100M   5% /boot/efi
+/dev/sdb1       6.9G   32M  6.5G   1% /mnt
+tmpfs           343M     0  343M   0% /run/user/1000
+root@Linux-01:~/indraja# grep root /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+root@Linux-01:~/indraja# grep root /etc/passwd | cut -d  ":" -f6
+/root
+root@Linux-01:~/indraja# grep root /etc/passwd | cut -d  ":" -f7
+/bin/bash
+root@Linux-01:~/indraja# grep root /etc/passwd | cut -d  "/" -f1
+root:x:0:0:root:
+root@Linux-01:~/indraja# grep root /etc/passwd | cut -d  "/" -f2
+root:
+root@Linux-01:~/indraja# grep root /etc/passwd | cut -d  "/" -f3
+bin
+root@Linux-01:~/indraja# date
+Wed Mar  2 10:36:26 UTC 2022
+root@Linux-01:~/indraja# date | cut -d " " -f5
+10:36:48
+root@Linux-01:~/indraja# cut --
+--bytes=             --complement         --fields=            --only-delimited     --version
+--characters=        --delimiter=         --help               --output-delimiter=  --zero-terminated
+root@Linux-01:~/indraja# history
+    1  # ************************************ Shell Script ###########################################
+    2  clear
+    3  ######### Shell script- Session -2 ############################################3
+    4  printf("Hi")
+    5  printf(" Hi ")
+    6  Printf(" heloo ")
+    7  Printf (" heloo ")
+    8  man printf
+    9  printf(\")
+   10  printf K
+   11  printf "hello"
+   12  printf "hello" \n
+   13  man printf
+   14  printf \n "hello"
+   15  printf \n "hello \n"
+   16  echo -e "heloo world"
+   17  echo -e "Welcome \n to \t\t\t linux shell"
+   18  ##########3 Color coding ##########################
+   19  echo -e "\ehello\e"
+   20  echo -e "\e[31m hello"
+   21  echo -e "\e[31m hello green:/e[31m"
+   22  clear
+   23  \e[0m
+   24  echo -e "\e[0m"
+   25  echo -e "\e[32m welcome \e[0m"
+   26  echo -e "\e[34m welcome \e[0m"
+   27  echo -e "\e[33m welcome \e[0m"
+   28  ############ Sessiom -03 #######################
+   29  echo "welcome"
+   30  man echo
+   31  cat test.sh
+   32  cat > hello
+   33  cat hello
+   34  cat > hello
+   35  cat >> 34567
+   36  cat >> hello
+   37  cat hello
+   38  ll
+   39  cat -n hello
+   40  history
+   41  clear
+   42  ls -ltr
+   43  ls -altr
+   44  ################# Editors ###############33333
+   45  # 1)nano 2) VI(Visual display editor 3)vim
+   46  # with editors we can create a new file or modify the existing file
+   47  ped
+   48  pwd
+   49  vi file01
+   50  sudo su -
+   51  history
+   52  clear
+   53  echo "\e[32m welcome"
+   54  echo -e "\e[32m welcome"
+   55  echo -e "\e[0m welcome"
+   56  clear
+   57  touch file1
+   58  ls -l
+   59  cd indraja
+   60  mkdir indraja
+   61  cd indraja
+   62  clear
+   63  echo "welcome to linux"
+   64  echo -e "welcome to linux"
+   65  compgen -c | grep "echo"
+   66  echo -e "welcome to\ linux"
+   67  echo -e "welcome to\n linux"
+   68  echo "welcome to\n linux"
+   69  ############3 oecho with -e support specila cahrs like \n \t ###############
+   70  echo "\e[32m hwllo welcome \e[0m"
+   71  echo "\e[32m hwllo welcome "
+   72  echo -e "\e[32m hwllo welcome "
+   73  echo -e "\e[32m hwllo welcome \e[0m"
+   74  cat > first
+   75  cat -n first
+   76  ll
+   77  clear
+   78  ll
+   79  clear
+   80  ## i)command mode 2)edit mode 3) extended mode
+   81  ### 1):wq 2) :wq ! (force fully save  and quite) 3):q Quite without saving
+   82  ## 5) :se nu
+   83  vi second
+   84  cat second
+   85  ## dd-deltion // u --undo // p-- paste// alot more are there
+   86  cat -n second
+   87  nano second
+   88  cat second
+   89  clear
+   90  ############## Grep --> Golbal regular expression caommand #################
+   91  cat > new.txt
+   92  man grep
+   93  # grep <Keyword> filename
+   94  grep hello new.txt
+   95  cat >> new.txt
+   96  grep hi new.txt
+   97  cat new.txt | grep hi
+   98  df -h
+   99  df -h | grep 29g
+  100  clear
+  101  df -h | grep 29G
+  102  grep -n hi new.txt
+  103  hello
+  104  ################ SEssion -4 // Grep-command --> this is a file kevel command-->it will search the given keyword -->if if contains it will display the entire line
+  105  ## grepe \ grepc ..ect
+  106  ls -l
+  107  cd indraja
+  108  ls -l
+  109  vi second.txt
+  110  cat second
+  111  cat second.txt
+  112  cat second.txt | grep fish
+  113  cat -n second.txt | grep fish
+  114  ## grep-->print matched lines based on keywords
+  115  cat -n second.txt | grep a
+  116  cat -n second.txt | grep work
+  117  clear
+  118  cat -n second.txt | grep work
+  119  cat -n second.txt | grep -i work
+  120  vi second.txt
+  121  cat -n second.txt | grep -i work
+  122  cat -n second.txt | grep  work
+  123  grep -in 'work' second.txt
+  124  clear
+  125  df -h
+  126  df -h | grep -n 0
+  127  df -h | grep -n run
+  128  df -n -h
+  129  df -h | grep -n run
+  130  cat -n /etc/passwd
+  131  cat -n /etc/passwd | grep -i indraja
+  132  cat -n /etc/passwd | grep -i root
+  133  cat -n /etc/passwd | grep -c root
+  134  cat -n /etc/passwd | grep -c usr
+  135  cat -n second.txt | grep  -c a
+  136  cat -n second.txt | grep  -c work
+  137  cat -n second.txt | grep  -ic work
+  138  cp second.txt third.txt
+  139  ls -l
+  140  grep -l work second.txt first.txt third.txt
+  141  grep -l work second.txt first third.txt
+  142  cat third.txt
+  143  cat second.txt
+  144  grep -l work second.txt first third.txt
+  145  grep -l Work second.txt first third.txt
+  146  grep -l 'Work' second.txt first third.txt
+  147  grep -l 'Work' second.txt
+  148  grep 'work'second.txt
+  149  rm -f first.txt
+  150  rm second.txt
+  151  rm -f third.txt
+  152  ls -l
+  153  rm -f first
+  154  ls -l
+  155  cat > first
+  156  cp first > second.txt
+  157  cp first  second.txt
+  158  cat second.txt
+  159  grep -l hello first second.txt
+  160  grep -l 'hi' *
+  161  grep -l 'usr' *
+  162  grep -l 'root' /etc/passwd /etc/shadow
+  163  grep -n 'root' /etc/passwd /etc/shadow
+  164  grep -n 'usr' *
+  165  grep -n 'hi' *
+  166  v  ### -i --> case senistive 2) -c -->count 3) -l directory serach 4) -n numbers we can also combinations of these asa shown above
+  167  grep 'hello| Hello' second.txt
+  168  grep 'hi| Hi' second.txt
+  169  grep -n hi second.txt
+  170  grep -n ish second.txt
+  171  grep -in ish second.txt
+  172  ## here ish is the part of the word ..,but i need to print saparate word 'ish'
+  173  cat > second.txt
+  174  cat second .txt
+  175  cat second.txt
+  176  cat >> second.txt
+  177  cat second.txt
+  178  grep -w 'ish' second.txt
+  179  grep -iw 'ish' second.txt
+  180  grep  'ish' second.txt
+  181  ## -w -->by default grep serach keyword in the line not as saparate word ..,if we need to search as saparete word need to use "-w"
+  182  ls -ltr
+  183  cat second.txt
+  184  grep -vi 'english'
+  185  grep -v 'english'
+  186  clear
+  187  grep -v 'english'
+  188  ## ^ starting with $-->ending with
+  189  grep '^e' second.txt
+  190  grep '^E' second.txt
+  191  grep -we 'ish'
+  192  grep -e 'ish' -e 'english'
+  193  grep -E ish |english
+  194  grep -E ish|english  second.txt
+  195  grep -E 'ish|english'  second.txt
+  196  grep -wE 'ish|english'  second.txt
+  197  grep -A2 'ish' second.txt
+  198  grep -A2 'English' second.txt
+  199  grep -B2 'English' second.txt
+  200  cat second.txt
+  201  grep -B5 'English' second.txt
+  202  clear
+  203  df -h
+  204  df -h | grep -v -A1
+  205  df -h | grep -v 'size'
+  206  df -h | grep -v /
+  207  df -h | grep -v 'Filesystem'
+  208  clear
+  209  ############### Sessio -6 Topic :: Cut & Sort
+  210  grep -i\ grep -v \grep -E \grep -w\grep -l
+  211  ### Sorting the comamnd Output
+  212  cat >> second.txt
+  213  cat -n  second.txt
+  214  sort second.txt
+  215  sort -n second.txt
+  216  clear
+  217  sort second.txt
+  218  cat second.txt
+  219  cat >> third.txt
+  220  whoami>> third.txt
+  221  cat third.txt
+  222  which Bash
+  223  which bash
+  224  clear
+  225  sort second.txt
+  226  history
+  227  clear
+  228  history
+  229  clear
+  230  exit
+  231  clear
+  232  cd indraja
+  233  cat second.txt
+  234  sort second.txt
+  235  sort -r second.txt
+  236  sort -r second.txt > third.txt
+  237  cat third
+  238  cat third.txt
+  239  clear
+  240  cat >> num.txt
+  241  sort num.txt
+  242  sort -r num.txt
+  243  cat > users.txt
+  244  grep user users.txt
+  245  grep user users.txt >usersinfo.txt
+  246  cat usersinfo.txt
+  247  clear
+  248  sort -k 2 usersinfo.txt
+  249  sort -k 3 usersinfo.txt
+  250  cat >> usersinfo.txt
+  251  cat usersinfo.txt
+  252  sort -k 3 usersinfo.txt
+  253  sort -u usersinfo.txt
+  254  cat usersinfo.txt
+  255  cl
+  256  clear
+  257  cat usersinfo.txt
+  258  sort -u usersinfo.txt
+  259  sort -u -k 1 usersinfo.txt
+  260  sort -k 1 usersinfo.txt
+  261  sort -u -k1 usersinfo.txt
+  262  cat >> usersinfo.txt
+  263  cat usersinfo.txt
+  264  clear
+  265  cat usersinfo.txt
+  266  sort -u -k1 usersinfo.txt
+  267*
+  268  sort -u -k 2 usersinfo.txt
+  269  ## sort -M moths.txt
+  270  clear
+  271  df -h | grep -v size | awk '{ print $2}'|sort
+  272  df -h | grep -vi size | awk '{ print $2}'|sort
+  273  cat num.txt
+  274  clear
+  275  sort -n num.txt
+  276  sort -rn num.txt
+  277  man cut
+  278  man cut --
+  279  clear
+  280  cat second.txt
+  281  cat -b 1,3 second.txt
+  282  cut -b 1,3 second.txt
+  283  cut -b 3,1 second.txt
+  284  cut -b 3,1 second.txt | sort
+  285  clear
+  286  cut -b 3,4 second.txt | sort
+  287  cut -b 3- second.txt
+  288  cut -b -3 second.txt
+  289  echo "heloo" | cut -d e
+  290  echo "heloo" | cut -d "e"
+  291  echo "heloo" | cut -d "e" f1
+  292  echo "heloo" | cut -d "e" -f1
+  293  echo "heloo" | cut -d "e" -f3
+  294  echo "heloo" | cut -d "e" -f2
+  295  clear
+  296  df -h
+  297  grep root /etc/passwd
+  298  grep root /etc/passwd | cut -d  ":" -f6
+  299  grep root /etc/passwd | cut -d  ":" -f7
+  300  grep root /etc/passwd | cut -d  "/" -f1
+  301  grep root /etc/passwd | cut -d  "/" -f2
+  302  grep root /etc/passwd | cut -d  "/" -f3
+  303  date
+  304  date | cut -d " " -f5
+  305  history
+root@Linux-01:~/indraja# history --
+    1  # ************************************ Shell Script ###########################################
+    2  clear
+    3  ######### Shell script- Session -2 ############################################3
+    4  printf("Hi")
+    5  printf(" Hi ")
+    6  Printf(" heloo ")
+    7  Printf (" heloo ")
+    8  man printf
+    9  printf(\")
+   10  printf K
+   11  printf "hello"
+   12  printf "hello" \n
+   13  man printf
+   14  printf \n "hello"
+   15  printf \n "hello \n"
+   16  echo -e "heloo world"
+   17  echo -e "Welcome \n to \t\t\t linux shell"
+   18  ##########3 Color coding ##########################
+   19  echo -e "\ehello\e"
+   20  echo -e "\e[31m hello"
+   21  echo -e "\e[31m hello green:/e[31m"
+   22  clear
+   23  \e[0m
+   24  echo -e "\e[0m"
+   25  echo -e "\e[32m welcome \e[0m"
+   26  echo -e "\e[34m welcome \e[0m"
+   27  echo -e "\e[33m welcome \e[0m"
+   28  ############ Sessiom -03 #######################
+   29  echo "welcome"
+   30  man echo
+   31  cat test.sh
+   32  cat > hello
+   33  cat hello
+   34  cat > hello
+   35  cat >> 34567
+   36  cat >> hello
+   37  cat hello
+   38  ll
+   39  cat -n hello
+   40  history
+   41  clear
+   42  ls -ltr
+   43  ls -altr
+   44  ################# Editors ###############33333
+   45  # 1)nano 2) VI(Visual display editor 3)vim
+   46  # with editors we can create a new file or modify the existing file
+   47  ped
+   48  pwd
+   49  vi file01
+   50  sudo su -
+   51  history
+   52  clear
+   53  echo "\e[32m welcome"
+   54  echo -e "\e[32m welcome"
+   55  echo -e "\e[0m welcome"
+   56  clear
+   57  touch file1
+   58  ls -l
+   59  cd indraja
+   60  mkdir indraja
+   61  cd indraja
+   62  clear
+   63  echo "welcome to linux"
+   64  echo -e "welcome to linux"
+   65  compgen -c | grep "echo"
+   66  echo -e "welcome to\ linux"
+   67  echo -e "welcome to\n linux"
+   68  echo "welcome to\n linux"
+   69  ############3 oecho with -e support specila cahrs like \n \t ###############
+   70  echo "\e[32m hwllo welcome \e[0m"
+   71  echo "\e[32m hwllo welcome "
+   72  echo -e "\e[32m hwllo welcome "
+   73  echo -e "\e[32m hwllo welcome \e[0m"
+   74  cat > first
+   75  cat -n first
+   76  ll
+   77  clear
+   78  ll
+   79  clear
+   80  ## i)command mode 2)edit mode 3) extended mode
+   81  ### 1):wq 2) :wq ! (force fully save  and quite) 3):q Quite without saving
+   82  ## 5) :se nu
+   83  vi second
+   84  cat second
+   85  ## dd-deltion // u --undo // p-- paste// alot more are there
+   86  cat -n second
+   87  nano second
+   88  cat second
+   89  clear
+   90  ############## Grep --> Golbal regular expression caommand #################
+   91  cat > new.txt
+   92  man grep
+   93  # grep <Keyword> filename
+   94  grep hello new.txt
+   95  cat >> new.txt
+   96  grep hi new.txt
+   97  cat new.txt | grep hi
+   98  df -h
+   99  df -h | grep 29g
+  100  clear
+  101  df -h | grep 29G
+  102  grep -n hi new.txt
+  103  hello
+  104  ################ SEssion -4 // Grep-command --> this is a file kevel command-->it will search the given keyword -->if if contains it will display the entire line
+  105  ## grepe \ grepc ..ect
+  106  ls -l
+  107  cd indraja
+  108  ls -l
+  109  vi second.txt
+  110  cat second
+  111  cat second.txt
+  112  cat second.txt | grep fish
+  113  cat -n second.txt | grep fish
+  114  ## grep-->print matched lines based on keywords
+  115  cat -n second.txt | grep a
+  116  cat -n second.txt | grep work
+  117  clear
+  118  cat -n second.txt | grep work
+  119  cat -n second.txt | grep -i work
+  120  vi second.txt
+  121  cat -n second.txt | grep -i work
+  122  cat -n second.txt | grep  work
+  123  grep -in 'work' second.txt
+  124  clear
+  125  df -h
+  126  df -h | grep -n 0
+  127  df -h | grep -n run
+  128  df -n -h
+  129  df -h | grep -n run
+  130  cat -n /etc/passwd
+  131  cat -n /etc/passwd | grep -i indraja
+  132  cat -n /etc/passwd | grep -i root
+  133  cat -n /etc/passwd | grep -c root
+  134  cat -n /etc/passwd | grep -c usr
+  135  cat -n second.txt | grep  -c a
+  136  cat -n second.txt | grep  -c work
+  137  cat -n second.txt | grep  -ic work
+  138  cp second.txt third.txt
+  139  ls -l
+  140  grep -l work second.txt first.txt third.txt
+  141  grep -l work second.txt first third.txt
+  142  cat third.txt
+  143  cat second.txt
+  144  grep -l work second.txt first third.txt
+  145  grep -l Work second.txt first third.txt
+  146  grep -l 'Work' second.txt first third.txt
+  147  grep -l 'Work' second.txt
+  148  grep 'work'second.txt
+  149  rm -f first.txt
+  150  rm second.txt
+  151  rm -f third.txt
+  152  ls -l
+  153  rm -f first
+  154  ls -l
+  155  cat > first
+  156  cp first > second.txt
+  157  cp first  second.txt
+  158  cat second.txt
+  159  grep -l hello first second.txt
+  160  grep -l 'hi' *
+  161  grep -l 'usr' *
+  162  grep -l 'root' /etc/passwd /etc/shadow
+  163  grep -n 'root' /etc/passwd /etc/shadow
+  164  grep -n 'usr' *
+  165  grep -n 'hi' *
+  166  v  ### -i --> case senistive 2) -c -->count 3) -l directory serach 4) -n numbers we can also combinations of these asa shown above
+  167  grep 'hello| Hello' second.txt
+  168  grep 'hi| Hi' second.txt
+  169  grep -n hi second.txt
+  170  grep -n ish second.txt
+  171  grep -in ish second.txt
+  172  ## here ish is the part of the word ..,but i need to print saparate word 'ish'
+  173  cat > second.txt
+  174  cat second .txt
+  175  cat second.txt
+  176  cat >> second.txt
+  177  cat second.txt
+  178  grep -w 'ish' second.txt
+  179  grep -iw 'ish' second.txt
+  180  grep  'ish' second.txt
+  181  ## -w -->by default grep serach keyword in the line not as saparate word ..,if we need to search as saparete word need to use "-w"
+  182  ls -ltr
+  183  cat second.txt
+  184  grep -vi 'english'
+  185  grep -v 'english'
+  186  clear
+  187  grep -v 'english'
+  188  ## ^ starting with $-->ending with
+  189  grep '^e' second.txt
+  190  grep '^E' second.txt
+  191  grep -we 'ish'
+  192  grep -e 'ish' -e 'english'
+  193  grep -E ish |english
+  194  grep -E ish|english  second.txt
+  195  grep -E 'ish|english'  second.txt
+  196  grep -wE 'ish|english'  second.txt
+  197  grep -A2 'ish' second.txt
+  198  grep -A2 'English' second.txt
+  199  grep -B2 'English' second.txt
+  200  cat second.txt
+  201  grep -B5 'English' second.txt
+  202  clear
+  203  df -h
+  204  df -h | grep -v -A1
+  205  df -h | grep -v 'size'
+  206  df -h | grep -v /
+  207  df -h | grep -v 'Filesystem'
+  208  clear
+  209  ############### Sessio -6 Topic :: Cut & Sort
+  210  grep -i\ grep -v \grep -E \grep -w\grep -l
+  211  ### Sorting the comamnd Output
+  212  cat >> second.txt
+  213  cat -n  second.txt
+  214  sort second.txt
+  215  sort -n second.txt
+  216  clear
+  217  sort second.txt
+  218  cat second.txt
+  219  cat >> third.txt
+  220  whoami>> third.txt
+  221  cat third.txt
+  222  which Bash
+  223  which bash
+  224  clear
+  225  sort second.txt
+  226  history
+  227  clear
+  228  history
+  229  clear
+  230  exit
+  231  clear
+  232  cd indraja
+  233  cat second.txt
+  234  sort second.txt
+  235  sort -r second.txt
+  236  sort -r second.txt > third.txt
+  237  cat third
+  238  cat third.txt
+  239  clear
+  240  cat >> num.txt
+  241  sort num.txt
+  242  sort -r num.txt
+  243  cat > users.txt
+  244  grep user users.txt
+  245  grep user users.txt >usersinfo.txt
+  246  cat usersinfo.txt
+  247  clear
+  248  sort -k 2 usersinfo.txt
+  249  sort -k 3 usersinfo.txt
+  250  cat >> usersinfo.txt
+  251  cat usersinfo.txt
+  252  sort -k 3 usersinfo.txt
+  253  sort -u usersinfo.txt
+  254  cat usersinfo.txt
+  255  cl
+  256  clear
+  257  cat usersinfo.txt
+  258  sort -u usersinfo.txt
+  259  sort -u -k 1 usersinfo.txt
+  260  sort -k 1 usersinfo.txt
+  261  sort -u -k1 usersinfo.txt
+  262  cat >> usersinfo.txt
+  263  cat usersinfo.txt
+  264  clear
+  265  cat usersinfo.txt
+  266  sort -u -k1 usersinfo.txt
+  267*
+  268  sort -u -k 2 usersinfo.txt
+  269  ## sort -M moths.txt
+  270  clear
+  271  df -h | grep -v size | awk '{ print $2}'|sort
+  272  df -h | grep -vi size | awk '{ print $2}'|sort
+  273  cat num.txt
+  274  clear
+  275  sort -n num.txt
+  276  sort -rn num.txt
+  277  man cut
+  278  man cut --
+  279  clear
+  280  cat second.txt
+  281  cat -b 1,3 second.txt
+  282  cut -b 1,3 second.txt
+  283  cut -b 3,1 second.txt
+  284  cut -b 3,1 second.txt | sort
+  285  clear
+  286  cut -b 3,4 second.txt | sort
+  287  cut -b 3- second.txt
+  288  cut -b -3 second.txt
+  289  echo "heloo" | cut -d e
+  290  echo "heloo" | cut -d "e"
+  291  echo "heloo" | cut -d "e" f1
+  292  echo "heloo" | cut -d "e" -f1
+  293  echo "heloo" | cut -d "e" -f3
+  294  echo "heloo" | cut -d "e" -f2
+  295  clear
+  296  df -h
+  297  grep root /etc/passwd
+  298  grep root /etc/passwd | cut -d  ":" -f6
+  299  grep root /etc/passwd | cut -d  ":" -f7
+  300  grep root /etc/passwd | cut -d  "/" -f1
+  301  grep root /etc/passwd | cut -d  "/" -f2
+  302  grep root /etc/passwd | cut -d  "/" -f3
+  303  date
+  304  date | cut -d " " -f5
+  305  history
+  306  history --

@@ -1,0 +1,602 @@
+root@Linux-01:~# ########## User Mgmt & group ####################
+root@Linux-01:~# # 1) super users 2) system users 3) normal User
+root@Linux-01:~# 2) system users --> when we install apllication the user came up with that
+-su: syntax error near unexpected token `)'
+root@Linux-01:~# ## 1) id=0 for super users 2) system uers (1-999) 3) normal uesr (1000-65536)
+root@Linux-01:~# ## users files 1)/etc/passwd 2)/etc/shadow
+root@Linux-01:~# cat -n /etc/passwd
+     1  root:x:0:0:root:/root:/bin/bash
+     2  daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+     3  bin:x:2:2:bin:/bin:/usr/sbin/nologin
+     4  sys:x:3:3:sys:/dev:/usr/sbin/nologin
+     5  sync:x:4:65534:sync:/bin:/bin/sync
+     6  games:x:5:60:games:/usr/games:/usr/sbin/nologin
+     7  man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+     8  lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+     9  mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+    10  news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+    11  uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+    12  proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+    13  www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+    14  backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+    15  list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+    16  irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+    17  gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+    18  nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+    19  systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin
+    20  systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin
+    21  syslog:x:102:106::/home/syslog:/usr/sbin/nologin
+    22  messagebus:x:103:107::/nonexistent:/usr/sbin/nologin
+    23  _apt:x:104:65534::/nonexistent:/usr/sbin/nologin
+    24  lxd:x:105:65534::/var/lib/lxd/:/bin/false
+    25  uuidd:x:106:110::/run/uuidd:/usr/sbin/nologin
+    26  dnsmasq:x:107:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+    27  landscape:x:108:112::/var/lib/landscape:/usr/sbin/nologin
+    28  sshd:x:109:65534::/run/sshd:/usr/sbin/nologin
+    29  pollinate:x:110:1::/var/cache/pollinate:/bin/false
+    30  azureuser:x:1000:1000:Ubuntu:/home/azureuser:/bin/bash
+root@Linux-01:~# clear
+root@Linux-01:~# id root
+uid=0(root) gid=0(root) groups=0(root)
+root@Linux-01:~# id indraja
+id: ‘indraja’: no such user
+root@Linux-01:~# id azuruser
+id: ‘azuruser’: no such user
+root@Linux-01:~# id azureuser
+uid=1000(azureuser) gid=1000(azureuser) groups=1000(azureuser),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),108(lxd),114(netdev)
+root@Linux-01:~# history
+    1  # ************************************ Shell Script ###########################################
+    2  clear
+    3  ######### Shell script- Session -2 ############################################3
+    4  printf("Hi")
+    5  printf(" Hi ")
+    6  Printf(" heloo ")
+    7  Printf (" heloo ")
+    8  man printf
+    9  printf(\")
+   10  printf K
+   11  printf "hello"
+   12  printf "hello" \n
+   13  man printf
+   14  printf \n "hello"
+   15  printf \n "hello \n"
+   16  echo -e "heloo world"
+   17  echo -e "Welcome \n to \t\t\t linux shell"
+   18  ##########3 Color coding ##########################
+   19  echo -e "\ehello\e"
+   20  echo -e "\e[31m hello"
+   21  echo -e "\e[31m hello green:/e[31m"
+   22  clear
+   23  \e[0m
+   24  echo -e "\e[0m"
+   25  echo -e "\e[32m welcome \e[0m"
+   26  echo -e "\e[34m welcome \e[0m"
+   27  echo -e "\e[33m welcome \e[0m"
+   28  ############ Sessiom -03 #######################
+   29  echo "welcome"
+   30  man echo
+   31  cat test.sh
+   32  cat > hello
+   33  cat hello
+   34  cat > hello
+   35  cat >> 34567
+   36  cat >> hello
+   37  cat hello
+   38  ll
+   39  cat -n hello
+   40  history
+   41  clear
+   42  ls -ltr
+   43  ls -altr
+   44  ################# Editors ###############33333
+   45  # 1)nano 2) VI(Visual display editor 3)vim
+   46  # with editors we can create a new file or modify the existing file
+   47  ped
+   48  pwd
+   49  vi file01
+   50  sudo su -
+   51  history
+   52  clear
+   53  echo "\e[32m welcome"
+   54  echo -e "\e[32m welcome"
+   55  echo -e "\e[0m welcome"
+   56  clear
+   57  touch file1
+   58  ls -l
+   59  cd indraja
+   60  mkdir indraja
+   61  cd indraja
+   62  clear
+   63  echo "welcome to linux"
+   64  echo -e "welcome to linux"
+   65  compgen -c | grep "echo"
+   66  echo -e "welcome to\ linux"
+   67  echo -e "welcome to\n linux"
+   68  echo "welcome to\n linux"
+   69  ############3 oecho with -e support specila cahrs like \n \t ###############
+   70  echo "\e[32m hwllo welcome \e[0m"
+   71  echo "\e[32m hwllo welcome "
+   72  echo -e "\e[32m hwllo welcome "
+   73  echo -e "\e[32m hwllo welcome \e[0m"
+   74  cat > first
+   75  cat -n first
+   76  ll
+   77  clear
+   78  ll
+   79  clear
+   80  ## i)command mode 2)edit mode 3) extended mode
+   81  ### 1):wq 2) :wq ! (force fully save  and quite) 3):q Quite without saving
+   82  ## 5) :se nu
+   83  vi second
+   84  cat second
+   85  ## dd-deltion // u --undo // p-- paste// alot more are there
+   86  cat -n second
+   87  nano second
+   88  cat second
+   89  clear
+   90  ############## Grep --> Golbal regular expression caommand #################
+   91  cat > new.txt
+   92  man grep
+   93  # grep <Keyword> filename
+   94  grep hello new.txt
+   95  cat >> new.txt
+   96  grep hi new.txt
+   97  cat new.txt | grep hi
+   98  df -h
+   99  df -h | grep 29g
+  100  clear
+  101  df -h | grep 29G
+  102  grep -n hi new.txt
+  103  hello
+  104  ################ SEssion -4 // Grep-command --> this is a file kevel command-->it will search the given keyword -->if if contains it will display the entire line
+  105  ## grepe \ grepc ..ect
+  106  ls -l
+  107  cd indraja
+  108  ls -l
+  109  vi second.txt
+  110  cat second
+  111  cat second.txt
+  112  cat second.txt | grep fish
+  113  cat -n second.txt | grep fish
+  114  ## grep-->print matched lines based on keywords
+  115  cat -n second.txt | grep a
+  116  cat -n second.txt | grep work
+  117  clear
+  118  cat -n second.txt | grep work
+  119  cat -n second.txt | grep -i work
+  120  vi second.txt
+  121  cat -n second.txt | grep -i work
+  122  cat -n second.txt | grep  work
+  123  grep -in 'work' second.txt
+  124  clear
+  125  df -h
+  126  df -h | grep -n 0
+  127  df -h | grep -n run
+  128  df -n -h
+  129  df -h | grep -n run
+  130  cat -n /etc/passwd
+  131  cat -n /etc/passwd | grep -i indraja
+  132  cat -n /etc/passwd | grep -i root
+  133  cat -n /etc/passwd | grep -c root
+  134  cat -n /etc/passwd | grep -c usr
+  135  cat -n second.txt | grep  -c a
+  136  cat -n second.txt | grep  -c work
+  137  cat -n second.txt | grep  -ic work
+  138  cp second.txt third.txt
+  139  ls -l
+  140  grep -l work second.txt first.txt third.txt
+  141  grep -l work second.txt first third.txt
+  142  cat third.txt
+  143  cat second.txt
+  144  grep -l work second.txt first third.txt
+  145  grep -l Work second.txt first third.txt
+  146  grep -l 'Work' second.txt first third.txt
+  147  grep -l 'Work' second.txt
+  148  grep 'work'second.txt
+  149  rm -f first.txt
+  150  rm second.txt
+  151  rm -f third.txt
+  152  ls -l
+  153  rm -f first
+  154  ls -l
+  155  cat > first
+  156  cp first > second.txt
+  157  cp first  second.txt
+  158  cat second.txt
+  159  grep -l hello first second.txt
+  160  grep -l 'hi' *
+  161  grep -l 'usr' *
+  162  grep -l 'root' /etc/passwd /etc/shadow
+  163  grep -n 'root' /etc/passwd /etc/shadow
+  164  grep -n 'usr' *
+  165  grep -n 'hi' *
+  166  v  ### -i --> case senistive 2) -c -->count 3) -l directory serach 4) -n numbers we can also combinations of these asa shown above
+  167  grep 'hello| Hello' second.txt
+  168  grep 'hi| Hi' second.txt
+  169  grep -n hi second.txt
+  170  grep -n ish second.txt
+  171  grep -in ish second.txt
+  172  ## here ish is the part of the word ..,but i need to print saparate word 'ish'
+  173  cat > second.txt
+  174  cat second .txt
+  175  cat second.txt
+  176  cat >> second.txt
+  177  cat second.txt
+  178  grep -w 'ish' second.txt
+  179  grep -iw 'ish' second.txt
+  180  grep  'ish' second.txt
+  181  ## -w -->by default grep serach keyword in the line not as saparate word ..,if we need to search as saparete word need to use "-w"
+  182  ls -ltr
+  183  cat second.txt
+  184  grep -vi 'english'
+  185  grep -v 'english'
+  186  clear
+  187  grep -v 'english'
+  188  ## ^ starting with $-->ending with
+  189  grep '^e' second.txt
+  190  grep '^E' second.txt
+  191  grep -we 'ish'
+  192  grep -e 'ish' -e 'english'
+  193  grep -E ish |english
+  194  grep -E ish|english  second.txt
+  195  grep -E 'ish|english'  second.txt
+  196  grep -wE 'ish|english'  second.txt
+  197  grep -A2 'ish' second.txt
+  198  grep -A2 'English' second.txt
+  199  grep -B2 'English' second.txt
+  200  cat second.txt
+  201  grep -B5 'English' second.txt
+  202  clear
+  203  df -h
+  204  df -h | grep -v -A1
+  205  df -h | grep -v 'size'
+  206  df -h | grep -v /
+  207  df -h | grep -v 'Filesystem'
+  208  clear
+  209  ############### Sessio -6 Topic :: Cut & Sort
+  210  grep -i\ grep -v \grep -E \grep -w\grep -l
+  211  ### Sorting the comamnd Output
+  212  cat >> second.txt
+  213  cat -n  second.txt
+  214  sort second.txt
+  215  sort -n second.txt
+  216  clear
+  217  sort second.txt
+  218  cat second.txt
+  219  cat >> third.txt
+  220  whoami>> third.txt
+  221  cat third.txt
+  222  which Bash
+  223  which bash
+  224  clear
+  225  sort second.txt
+  226  history
+  227  clear
+  228  history
+  229  clear
+  230  exit
+  231  clear
+  232  clear
+  233  cd indraja
+  234  cat second.txt
+  235  sort second.txt
+  236  sort -r second.txt
+  237  sort -r second.txt > third.txt
+  238  cat third
+  239  cat third.txt
+  240  clear
+  241  cat >> num.txt
+  242  sort num.txt
+  243  sort -r num.txt
+  244  cat > users.txt
+  245  grep user users.txt
+  246  grep user users.txt >usersinfo.txt
+  247  cat usersinfo.txt
+  248  clear
+  249  sort -k 2 usersinfo.txt
+  250  sort -k 3 usersinfo.txt
+  251  cat >> usersinfo.txt
+  252  cat usersinfo.txt
+  253  sort -k 3 usersinfo.txt
+  254  sort -u usersinfo.txt
+  255  cat usersinfo.txt
+  256  cl
+  257  clear
+  258  cat usersinfo.txt
+  259  sort -u usersinfo.txt
+  260  sort -u -k 1 usersinfo.txt
+  261  sort -k 1 usersinfo.txt
+  262  sort -u -k1 usersinfo.txt
+  263  cat >> usersinfo.txt
+  264  cat usersinfo.txt
+  265  clear
+  266  cat usersinfo.txt
+  267  sort -u -k1 usersinfo.txt
+  268  sort -u -k 2 usersinfo.txt
+  269  ## sort -M moths.txt
+  270  clear
+  271  df -h | grep -v size | awk '{ print $2}'|sort
+  272  df -h | grep -vi size | awk '{ print $2}'|sort
+  273  cat num.txt
+  274  clear
+  275  sort -n num.txt
+  276  sort -rn num.txt
+  277  man cut
+  278  man cut --
+  279  clear
+  280  cat second.txt
+  281  cat -b 1,3 second.txt
+  282  cut -b 1,3 second.txt
+  283  cut -b 3,1 second.txt
+  284  cut -b 3,1 second.txt | sort
+  285  clear
+  286  cut -b 3,4 second.txt | sort
+  287  cut -b 3- second.txt
+  288  cut -b -3 second.txt
+  289  echo "heloo" | cut -d e
+  290  echo "heloo" | cut -d "e"
+  291  echo "heloo" | cut -d "e" f1
+  292  echo "heloo" | cut -d "e" -f1
+  293  echo "heloo" | cut -d "e" -f3
+  294  echo "heloo" | cut -d "e" -f2
+  295  clear
+  296  df -h
+  297  grep root /etc/passwd
+  298  grep root /etc/passwd | cut -d  ":" -f6
+  299  grep root /etc/passwd | cut -d  ":" -f7
+  300  grep root /etc/passwd | cut -d  "/" -f1
+  301  grep root /etc/passwd | cut -d  "/" -f2
+  302  grep root /etc/passwd | cut -d  "/" -f3
+  303  date
+  304  date | cut -d " " -f5
+  305  history
+  306  history --
+  307  clear
+  308  init 6
+  309  ls -R
+  310  yum install tree
+  311  apt insrtall yum
+  312  apt install yum
+  313  yum install tree
+  314  clear
+  315  cd indraja
+  316  ls -ltr /
+  317  ls ~
+  318  echo ~
+  319  cd
+  320  cd indraja
+  321  ls -l
+  322  mkdir india
+  323  cd india
+  324  cd
+  325  clear
+  326  ifconfig
+  327  compgen -c
+  328  compgen -c | grep 'adduser'
+  329  compgen -c | grep 'user'
+  330  clear
+  331  compgen -c | wc -l
+  332  clear
+  333  pwd
+  334  cd indraja
+  335  pwd
+  336  ls -l
+  337  ls -al
+  338  ls -alt
+  339  ls -altr
+  340  clear
+  341  head -1 /etc/passwd
+  342  head -2 /etc/passwd
+  343  tail -2 /etc/passwd
+  344  tail -2 /etc/passwd | cut -d "/" -f5
+  345  tail -2 /etc/passwd | cut -d ":" -f5
+  346  ls /root
+  347  cat command
+  348  ls | wc -l
+  349  ls -l
+  350  rm first
+  351  rm users.txt
+  352  ls -l
+  353  echo $?
+  354  mkdir India/{Ap/{first,second},Mh/{third,fouth},K/{fifth.sixth}}
+  355  mkdir -p India/{Ap/{first,second},Mh/{third,fouth},K/{fifth.sixth}}
+  356  man mkdir
+  357  clear
+  358  cd /India
+  359  ls -l
+  360  cd india/Ap
+  361  cd India
+  362  ls -l
+  363  cd Ap
+  364  ls -l
+  365  pwd
+  366  cd ../../..
+  367  cd /root/indraja/India/Ap
+  368  cd ../../..
+  369  cd indraja cd /India/Ap
+  370  cd indraja
+  371  cd /India/Ap
+  372  cd India/Ap
+  373  clear
+  374  cd ../
+  375  cd ../..
+  376  cd indraja
+  377  rm India/Ap
+  378  rm -f India/Ap
+  379  rm -rf India/Ap
+  380  man rmdir India/mh
+  381  cd Mh
+  382  cd India
+  383  ls -l
+  384  cd Mh
+  385  rm first
+  386  ls -l
+  387  rm third
+  388  rmdir third
+  389  ls -l
+  390  cd ..
+  391  rmdir Mh
+  392  rmdir -f Mh
+  393  man rmdir
+  394  man -rf rmdir
+  395  rmdir -rf Mh
+  396  rm -fr Mh
+  397  ls -l
+  398  cd K
+  399  ls -l
+  400  rm fifth
+  401  rm fifth.sixth
+  402  cd ..
+  403  rm -r k
+  404  rm -r K
+  405  cd..
+  406  cd ..
+  407  rm india
+  408  rm India
+  409  rm -r India
+  410  man rm
+  411  clear
+  412  ls -R
+  413  man ls
+  414  ls -ltr /
+  415  ls /
+  416  ls -l /
+  417  ls ~
+  418  man ls
+  419  ls -l
+  420  su indraja
+  421  su azureuser
+  422  clear
+  423  ################# File Pemissions ###############################
+  424  cd indraja
+  425  ls -l
+  426  mv num.txt numbers.txt
+  427  cat num.txt
+  428  cat numbers.txt
+  429  mkdir india
+  430  cd india
+  431  ls -l
+  432  cd ..
+  433  mkdir kerala
+  434  cd kerala
+  435  touch a.txt
+  436  cd ..
+  437  mv kerala/a.touch india/
+  438  clear
+  439  mv kerala/a.touch india/
+  440  ls -l
+  441  cat kerala/a.txt
+  442  cd kerala/a.txt
+  443  cat >kerala/a.txt
+  444  touch india/b.txt
+  445  mv kerala/a.txt /india/b.txt
+  446  mv kerala/a.txt india/b.txt
+  447  ca india/b.txt
+  448  cat india/b.txt
+  449  cat kerala/a.txt
+  450  cd kerala
+  451  ls -l
+  452  cd ..
+  453  clera
+  454  clear
+  455  cat > kerala/new.txt
+  456  cp kerala/new.txt india/a.txt
+  457  cat india/a.txt
+  458  cat kerala/new.txt
+  459  cat > news.txt
+  460  cat news.txt | less
+  461  cat -n /etc/passwd |less
+  462  cat -n /etc/passwd |more
+  463  clear
+  464  useradd shiva
+  465  cat -n /etc/passwd | tail -1
+  466  tail -1 /etc/passwd
+  467  userdel -r shiva
+  468  man userdel
+  469  deluser shiva
+  470  cat /usr/sbin
+  471  cd usr/sbin
+  472  man more
+  473  cat -n /etc/passwd | more -2
+  474  clear
+  475  top | more
+  476  clear
+  477  ##
+  478  clear
+  479  ## read -4 write -2 execution -1
+  480  cd indraja
+  481  ls -l
+  482  umask 766
+  483  ls -l
+  484  mkdir shylaja
+  485  ls -l
+  486  mkdir hello
+  487  ls -l
+  488  umask 766
+  489  umask 755
+  490  mkdir hiii
+  491  ls -l
+  492  umask
+  493  umask 0022
+  494  mkdir koo
+  495  ls -l
+  496  umask 774
+  497  mkdir kaa
+  498  ls -l
+  499  umask 003
+  500  rm -rf *
+  501  ls -l
+  502  clear
+  503  umask 0003
+  504  mkdir test
+  505  ls -l
+  506  touch a.txt
+  507  ls -l
+  508  umask
+  509  umask 0022
+  510  touch b.txt
+  511  ls -l
+  512  clear
+  513  umask
+  514  ## Umask=full permissions - required permissions // umask = 777-665=113
+  515  ls bashrc
+  516  cd /etc
+  517  vi bashrc
+  518  cd ..
+  519  cd /
+  520  cd
+  521  vi etc
+  522  cd etc
+  523  cd /etc/bashrc
+  524  ls -l
+  525  ls -altr
+  526  ls -al
+  527  clear
+  528  cd ~
+  529  ls -al
+  530  cat .bashrc
+  531  wq
+  532  clear
+  533  mkdir .hidden
+  534  ls -l
+  535  ls -al
+  536  clear
+  537  ls -l
+  538  chmod 646
+  539  chmod 646 new.txt
+  540  ls -l
+  541  chmode a+x new.txt
+  542  clear
+  543  chmode o+x new.txt
+  544  umask o+x new.txt
+  545  ls -l
+  546  chmod clear
+  547  clear
+  548  ########## User Mgmt & group ####################
+  549  # 1) super users 2) system users 3) normal User
+  550  2) system users --> when we install apllication the user came up with that
+  551  ## 1) id=0 for super users 2) system uers (1-999) 3) normal uesr (1000-65536)
+  552  ## users files 1)/etc/passwd 2)/etc/shadow
+  553  cat -n /etc/passwd
+  554  clear
+  555  id root

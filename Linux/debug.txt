@@ -1,0 +1,83 @@
+Debugging::
+-----------
+-x
+expansions
+print debugging/tracing/x-trace
+
+#!/bin/bash -x
+
+set -x ---> at the command line
+set +x stop debugging
+-e option -->exit the script ifv any non-zero status will occure
+#!/bin/bash -ex
+#!/bin/bash/ -xe
+#!/bin/bash -e -x
+
+#!/bin/bash -x -e
+
+-v option
+
+$DEBUG && echo "Debug mode is ON"
+$DEBUG && echo "Debug mode is Off"
+
+Manual Copy And Paste::
+---------------------------
+open 2nd terminal and copy and paste and run ecah line to debug the script.
+
+SYNTAX HEGHLIGHTING::
+----------------------
+
+VIM and emacs have syntax highlighting
+
+.vi/vim
+.emacs
+.nano
+gedit
+.kate
+.geany
+.many others
+
+PS4::
+----
+Builtin-Variables::
+
+$BASH_SOURCE
+$LINENO
+
+http://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html
+
+FILE-TYPES::
+------------
+
+^M carriage returns
+dos2unix
+unix2dos
+
+-e -v -x 
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+TEMPLATE::
+
+#!/bin/bash
+#<REPLACE WITH DISCRIPTION AND PERPOSE OF SCRIPT>
+GLOBAL_VARIABVLES="ONE"
+GLOBAL_VARIABVLES="TWO"
+function function_one(){
+#<replace with common function code>
+
+}
+# Main body of the shell scripts start here
+
+#<Replace with the main command sof your shell script>
+#Exit with an explicit exit status
+exit0
+
+------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+

@@ -1,0 +1,145 @@
+Functions ::
+Function Creation::
+1)function test(){
+code .....
+}
+2)test(){
+code ....
+}
+
+Function Calling::
+test
+we can call one function in another function
+
+Positional Parameters::
+$1 $2 $@
+$0 still gives the name of origina script not the function name
+
+Variable Scope::
+variable has to be defind before it is used
+
+
+Exit Statuses & Return Codes::
+
+Exit status can send with the return keyword
+last line of function decides exit status of a function
+
+  1  #!/bin/bash
+     2  backup-file(){
+     3  echo "Execition Started"
+     4  if [ -f "$1" ]
+     5  then
+     6  local BACKUP-FILE="/tmp/$(basename ${1}).$(date +%F).$$"
+     7  echo "Backing up $1 to ${BACKUP-FILE}"
+     8  cp $1 $BACKUP-FILE
+     9  else
+    10  return 1
+    11  fi
+    12  }
+    13  backup-file /root/Book/functions/param
+    14  if [$? -eq "0" ]
+    15  then
+    16  echo "success"
+    17  else
+    18  echo "failed"
+    19  fi
+    20
+    21
+    22
+    23  #!/bin/bash
+    24  hello(){
+    25  echo "hello"
+    26  now
+    27  }
+    28  now(){
+    29  echo "$(date +%r)"
+    30  }
+    31  hello
+    32  #!/bin/bash
+    33  Global_Var=10
+    34  hello(){
+    35  echo "$Global_Var"
+    36  }
+    37  hello
+    38  #!/bin/bash
+    39
+    40  hello(){
+    41  echo "$Global_Var"
+    42  }
+    43  Global_var=20
+    44  hello
+    45  #!/bin/bash
+    46  function count(){
+    47  local num=$(ls *)
+    48  echo "$num"
+    49  cat -n $num
+    50  }
+    51  count
+    52  #!/bin/bash
+    53  function count(){
+    54
+    55  then
+    56  local $RESULT=$(ls|wc -l)
+    57  echo "number of files in ${FILE} is $RESULT"
+    58  else
+    59  echo "plase enter the directory"
+    60  exit 1
+    61  }
+    62  count
+    63  #!/bin/bash
+    64  count(){
+    65  local dir=$1
+    66  local num=$(ls $dir | wc -l)
+    67  echo $num
+    68  }
+    69  count /etc
+    70  count /var
+    71  count /usr/bin
+    72  #!/bin/bash
+    73  hello(){
+    74  echo "hello"
+    75  now
+    76  }
+    77  hello
+    78  now(){
+    79  echo "$(date +%r)"
+    80  }
+    81
+    82  #!/bin/bash
+    83  hello(){
+    84  echo "hello $1"
+    85  now
+    86  }
+    87
+    88  now(){
+    89  echo "$(date +%r)"
+    90  }
+    91  hello indraja
+    92  #!/bin/bash
+    93  hello(){
+    94  echo "hello $1"
+    95  now
+    96  }
+    97
+    98  now(){
+    99  echo "$(date +%r)"
+   100  }
+   101  hello indraja
+
+   102  #!/bin/bash
+   103  hello(){
+   104  for name in $@
+   105  do
+   106  echo "hello $name"
+   107  done
+   108  }
+   109  now(){
+   110  echo "$(date +%r)"
+   111  }
+   112  hello indraja shylaja menaka leela manasa
+
+
+
+
+
+

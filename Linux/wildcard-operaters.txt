@@ -1,0 +1,100 @@
+WildCards::
+globs /glob patterns
+2 main wild cards are (*),(?)
+* -- > 0 or more chars
+*.txt
+a*.
+-------------------
+? -- > matches exactly one charecter
+?.txt-->all files with only 1 char before dot(.)
+------------------------------
+Charecter Classes::
+[aeiou]
+ca[nt]*.-->cat candy can catch ..,etc
+do not match
+[!aeiou]*. -> do not start with a,e ,i, o, u
+
+Ranges::
+---------
+[a-g] from a-g
+[3-6] from {3,4,5,6 } 3-6
+
+Named Charecter Classes::
+--------------------------
+[:alpha:] --> matches alphabetic letters both lower and upper
+[:alnum:]-->
+[:digits:]
+[:lower:]
+[:space:]-->matches white space,tabs,newline chars
+
+
+Matching Wildcard Patterns::
+----------------------------
+if we want to matc the one of the wild card charecter ..,we need to escape thar charecter
+\?,\*..,etc
+
+......................................................................................................................................
+
+Case-Statemnts::
+---------------------
+case $1 in
+start)
+logic goes here....,
+;;
+stop)
+logic goes here...,
+;;
+*)
+if nthing matches
+;;
+esac
+_____________________________________________________________
+
+[yY][eE][sS]|[nN][oO]
+
+[yY]*)
+
+case $ANSWER in
+start)
+"/tmp/sleep-walking-sever&"
+
+__________________________________________________________________________-
+
+Logging::
+----------
+logs::
+  syslog:
+   
+  facilities & severity
+
+Facilities are used to indicate what type of progran or what part of the system the message is originated from.
+eg:Kern
+mail facility came from applications involved in handling mail
+
+user  --> if we dontg know the which fesility to use
+local0-local7 -->custom logging
+
+Ecah fecility has  a number and keyword
+syslog fecilites are::
+
+The Logger Utility::
+---------------------
+logger command --> generates the syslog messages
+logger "Message"
+logger -p local0.info "Message"
+logger -t myscript -p local0.info"Message" --> tagging with our script
+logger -i -t myscript "message"
+logger -s -p local0.info "message"  ---> -s both log will display on the screen and it will send to logger
+
+
+"Shift " parameter
+
+
+
+
+
+
+
+
+
+

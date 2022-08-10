@@ -1,0 +1,323 @@
+The Shebang :: #! /bin/bash
+#!/usr/bin/python
+
+Variables::	
+VARIABLE_NAME="Value"
+SERVER_NAME=$(hostname)
+SERVER_NAME=`hostname`
+
+Valid Variable Names::
+_______________________
+
+Contains letters,digits and underscores
+cant start with digits
+Number="shell"
+echo "i like the Number"
+echo "i like the $Number"
+echo "i like the $Number Scripting"
+echo "i like the $NumberScripting"
+echo "i like the ${Number}Scripting"
+date
+date=date
+today=date
+$today
+echo "to day date is $today"
+$today
+echo "to day date is $today"
+echo $today
+today=$(date)
+$today
+clear
+SERVER_NAME=hostname
+$SERVER_NAME
+echo "you are using $SERVER_NAME"
+SERVER_NAME=$(hostname)
+echo "you are using $SERVER_NAME"
+today=`date`
+echo "today is $date"
+echo "today is $today"
+[-e /etc/passwd]
+help test
+vi Conditionals.txt
+chmod 755 Coonditionals.txt
+chmod 755 Conditionals.txt
+clear
+chmod 755 Conditionals.txt
+./Conditionals.txt
+vi Conditionals.txt
+############################################## if ################################3333333
+root@Linux-01:~/Book# cat hello
+#!/bin/bash
+m=1
+n=2
+
+if [ $n = $m ]
+then
+        echo "Both variables are the same"
+else
+        echo "Both variables are different"
+fi
+############################################3  for loop #####################
+for Color in red gree yello
+do
+echo "Color is $Color"
+done
+
+
+root@Linux-01:~/Book# cat forloop2
+#!/bin/bash
+Color="red gree yello"
+for Color in $Color
+do
+echo "Color is:: $Color"
+done
+############################################### 
+
+#!/bin/bash
+PICTURES=$(ls *jpg)
+DATE=$(date +%F)
+for jpg in $PICTURES
+do
+echo "this is $jpg"
+echo "Renaming ${jpg} to ${DATE}-${jpg}"
+mv ${jpg} ${DATE}-${jpg}
+done
+############################################### POSITIONAL PARAMETERS ############################################
+ 1  #!/bin/bash
+     2  echo "Executing script : $0"
+     3  echo "Archiving User : $1"
+     4  passwd -l $1
+     5  tar cf/archives/${1}.tar.gz/home/${1}
+
+
+
+ 1  #!/bin/bash
+user=$1
+     2  echo "Executing script : $0"
+     3  echo "Archiving User : $user"
+     4  passwd -l $1
+     5  tar cf/archives/${$user}.tar.gz/home/${$user}
+
+
+#!/bin/bash
+
+
+echo "Executing script : $0"
+for user in $@
+do
+echo "Archiving User : $user"
+passwd -l $user
+tar cf/archives/${user}.tar.gz/home/${user}
+done
+
+########################################################## Getting Uesr Input ################################33
+
+
+read -p "<prompt>" VARIABLE_NAME
+
+ 1  #!/bin/bash
+     2  for animal in bear pig dog cat sheep man
+     3  do
+     4  echo "the animal is $animal"
+     5  done
+
+     1  #!/bin/bash
+     2  FILE="/etc/shadow"
+     3  if [ -e "$FILE" ]
+     4  then
+     5  echo "the file is exist ! passwords are enabled"
+     6  if [ -w "$FILE" ]
+     7  then
+     8  echo "youu have permmisiion to edit the file"
+     9  else
+    10  echo "you dont have the permission to edit the  file"
+    11  fi
+    12  fi
+
+     1  #!/bin/bash
+     2  FILES=$@
+     3  for FILE in $FILES
+     4  do
+     5  if [ -f "$FILE" ]
+     6  then
+     7  echo "$FILE is a regular file"
+     8  elif [ -d "$FILE" ]
+     9  then
+    10  echo "this is directory "
+    11  ls -l
+    12  else
+    13  echo "the file is not correct ! try again !! GOOD LUCKK"
+    14  fi
+    15  done
+     1  #!/bin/bash
+     2  read -p "enter the Directory::" D
+     3  if [ -d "$D" ]
+     4  then
+     5  echo "this is Directopryy"
+     6  ls=$(ls *)
+     7  for list in $ls
+     8  do
+     9  cat -n $list
+    10  done
+    11  fi
+
+
+     1  #!/bin/bash
+     2  echo "Scripting is Fun !!"
+     1  i
+
+
+     1  #!/bin/bash
+     2  HOST_NAME=$(hostname)
+     3  echo "Scripting is Rinning on ${HOST_NAM}E where ${HOST_NAME} is the result of the command"
+
+     1  #!/bin/bash
+     2  FILE=$1
+     3  if [ -f "$FILE" ]
+     4  then
+     5  echo "$FILE is a regular file"
+     6  elif [ -d "$FILE" ]
+     7  then
+     8  echo "this is directory "
+     9  ls -l
+    10  else
+    11  echo "the file is not correct ! try again !! GOOD LUCKK"
+    12  fi
+    13
+     1  #!/bin/bash
+     2  read -p "enter  the file check " FILE
+     3  if [ -f "$FILE" ]
+     4  then
+     5  echo "$FILE is a regular file"
+     6  elif [ -d "$FILE" ]
+     7  then
+     8  echo "this is directory "
+     9  ls -l
+    10  else
+    11  echo "the file is not correct ! try again !! GOOD LUCKK"
+    12  fi
+    13
+     1  #!/bin/bash
+     2  $FILE="/etc/shadow"
+     3  if [ -e "$FILE"]
+     4  then
+     5  echo "file exist"
+     6  fi
+
+
+######################################################## EXIT STATUSES & RETURN CODES ########################################
+zero --> success
+Non-Zero --->failure
+echo $?
+valid exit codes 0-255
+ ** the line sparated by the semicolon will be executed still whatever the status of previous commands
+** not only commands, we can add exit code to the scripts itself
+**
+ 1  #!/bin/bash
+     2  for animal in bear pig dog cat sheep man
+     3  do
+     4  echo "the animal is $animal"
+     5  done
+     1  #!/bin/bash
+     2  FILE="/etc/shadow"
+     3  if [ -e "$FILE" ]
+     4  then
+     5  echo "the file is exist ! passwords are enabled"
+     6  if [ -w "$FILE" ]
+     7  then
+     8  echo "youu have permmisiion to edit the file"
+     9  else
+    10  echo "you dont have the permission to edit the  file"
+    11  fi
+    12  fi
+
+
+     1  #!/bin/bash
+     2  FILES=$@
+     3  for FILE in $FILES
+     4  do
+     5  if [ -f "$FILE" ]
+     6  then
+     7  echo "$FILE is a regular file"
+     8  elif [ -d "$FILE" ]
+     9  then
+    10  echo "this is directory "
+    11  ls -l
+    12  else
+    13  echo "the file is not correct ! try again !! GOOD LUCKK"
+    14  fi
+    15  done
+
+
+     1  #!/bin/bash
+     2  read -p "enter the Directory::" D
+     3  if [ -d "$D" ]
+     4  then
+     5  echo "this is Directopryy"
+     6  ls=$(ls *)
+     7  for list in $ls
+     8  do
+     9  cat -n $list
+    10  done
+    11  fi
+
+
+     1  #!/bin/bash
+     2  echo "Scripting is Fun !!"
+     1  i
+     1  #!/bin/bash
+     2  HOST_NAME=$(hostname)
+     3  echo "Scripting is Rinning on ${HOST_NAM}E where ${HOST_NAME} is the result of the command"
+     1  #!/bin/bash
+     2  FILE=$1
+     3  if [ -f "$FILE" ]
+     4  then
+     5  echo "$FILE is a regular file"
+     6  elif [ -d "$FILE" ]
+     7  then
+     8  echo "this is directory "
+     9  ls -l
+    10  else
+    11  echo "the file is not correct ! try again !! GOOD LUCKK"
+    12  fi
+    13
+
+
+     1  #!/bin/bash
+     2  read -p "enter  the file check " FILE
+     3  if [ -f "$FILE" ]
+     4  then
+     5  echo "$FILE is a regular file"
+     6  elif [ -d "$FILE" ]
+     7  then
+     8  echo "this is directory "
+     9  ls -l
+    10  else
+    11  echo "the file is not correct ! try again !! GOOD LUCKK"
+    12  fi
+    13
+
+
+     1  #!/bin/bash
+     2  $FILE="/etc/shadow"
+     3  if [ -e "$FILE"]
+     4  then
+     5  echo "file exist"
+     6  fi
+
+###################################################### Functions ##################################################333
+
+
+1) Creating A function
+ i) function Function_Name()
+{
+Code goes here..
+}
+
+2)hello()
+{
+
+}
+
+
+

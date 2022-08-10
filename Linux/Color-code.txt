@@ -1,0 +1,42 @@
+ 10  printf K
+   11  printf "hello"
+   12  printf "hello" \n
+   13  man printf
+   14  printf \n "hello"
+   15  printf \n "hello \n"
+   16  echo -e "heloo world"
+   17  echo -e "Welcome \n to \t\t\t linux shell"
+   18  ##########3 Color coding ##########################
+   19  echo -e "\ehello\e"
+   20  echo -e "\e[31m hello"
+   21  echo -e "\e[31m hello green:/e[31m"
+   22  clear
+   23  \e[0m
+   24  echo -e "\e[0m"
+   25  echo -e "\e[32m welcome \e[0m"
+   26  echo -e "\e[34m welcome \e[0m"
+   27  echo -e "\e[33m welcome \e[0m"
+   28  ############ Sessiom -03 #######################
+   29  echo "welcome"
+   30  man echo
+   31  cat test.sh
+   32  cat > hello
+   33  cat hello
+   34  cat > hello
+   35  cat >> 34567
+   36  cat >> hello
+   37  cat hello
+   38  ll
+   39  cat -n hello
+   40  history
+   41  clear
+   42  ls -ltr
+   43  ls -altr
+   44  ################# Editors ###############33333
+   45  # 1)nano 2) VI(Visual display editor 3)vim
+   46  # with editors we can create a new file or modify the existing file
+   47  ped
+   48  pwd
+   49  vi file01
+   50  sudo su -
+   51  history

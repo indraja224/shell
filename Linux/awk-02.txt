@@ -1,0 +1,86 @@
+################################### Session-6  Topic :: AWK Command ###############################
+--> text processing command
+-->Sub ShellScript
+
+syntax:(2 parts)
+------------
+awk patterns + Actions
+     //+{}
+awk '{}' file_name
+awk ''
+
+Rs content saparater
+~ contains
+!~ nt contains
+root@Linux-01:~# root@Linux-01:~# awk '{print$2,$1 }' usersinfo.txt
+sal Name
+35k indraja
+60k shylaja
+35k leela
+30k menaks
+25k manasa
+root@Linux-01:~# awk '/35k/ {print$2,$1 }' usersinfo.txt
+35k indraja
+35k leela
+root@Linux-01:~# awk '/35k/ {print$1 }' usersinfo.txt
+indraja
+leela
+........................................................................
+
+variables
+
+RS:: Record saparater
+Rs='\n'
+Fs:' '
+^ starting with
+$ ending with
+~ contains oparater
+~! not container
+
+
+root@Linux-01:~# gf -h
+gf: command not found
+root@Linux-01:~# awk '{print $0}'
+^C
+root@Linux-01:~# df -h |awk '{print $0}'
+Filesystem      Size  Used Avail Use% Mounted on
+udev            1.7G     0  1.7G   0% /dev
+tmpfs           343M  584K  343M   1% /run
+/dev/sda1        29G  1.9G   28G   7% /
+tmpfs           1.7G     0  1.7G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           1.7G     0  1.7G   0% /sys/fs/cgroup
+/dev/sda15      105M  4.4M  100M   5% /boot/efi
+/dev/sdb1       6.9G   32M  6.5G   1% /mnt
+tmpfs           343M     0  343M   0% /run/user/1000
+root@Linux-01:~# df -h |awk '/NR==2/ {print $0}'
+root@Linux-01:~# df -h |awk 'NR==2 {print $0}'
+udev            1.7G     0  1.7G   0% /dev
+root@Linux-01:~# df -h |awk 'NR>2 {print $0}'
+tmpfs           343M  584K  343M   1% /run
+/dev/sda1        29G  1.9G   28G   7% /
+tmpfs           1.7G     0  1.7G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           1.7G     0  1.7G   0% /sys/fs/cgroup
+/dev/sda15      105M  4.4M  100M   5% /boot/efi
+/dev/sdb1       6.9G   32M  6.5G   1% /mnt
+tmpfs           343M     0  343M   0% /run/user/1000
+root@Linux-01:~# ## command | awk pattern
+root@Linux-01:~# df -h |awk 'NR==2 {print $0}'
+udev            1.7G     0  1.7G   0% /dev
+root@Linux-01:~# df -h |awk 'NR==3 {print $0}'
+tmpfs           343M  584K  343M   1% /run
+root@Linux-01:~# df -h |awk 'NR==3 {print $4}'
+343M
+root@Linux-01:~# df -h |awk 'NR==3 {print $4}'  | cut -d 'M' -f
+cut: option requires an argument -- 'f'
+Try 'cut --help' for more information.
+root@Linux-01:~# df -h |awk 'NR==3 {print $4}'  | cut -d 'M' -f1
+343
+###################################
+Fs= feild saparater
+ cat -n /etc/passwd | awk 'FS=":" {print $1}'
+awk '{BEGIN}//{Action}  End {}' FileName
+
+
+

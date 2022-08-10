@@ -1,0 +1,220 @@
+#!/bin/bash
+
+num_a=100
+num_b=200
+
+if [ $num_a -lt $num_b ]; then
+    echo "$num_a is less than $num_b!"
+fi
+
+#################################################################################################
+
+#!/bin/bash
+
+num_a=400
+num_b=200
+
+if [ $num_a -lt $num_b ]; then
+    echo "$num_a is less than $num_b!"
+else
+    echo "$num_a is greater than $num_b!"
+fi
+
+###################################################################################################
+
+#!/bin/bash
+
+user=$(whoami)
+input=/home/$user
+output=/tmp/${user}_home_$(date +%Y-%m-%d_%H%M%S).tar.gz
+
+function total_files {
+        find $1 -type f | wc -l
+}
+
+function total_directories {
+        find $1 -type d | wc -l
+}
+
+function total_archived_directories {
+        tar -tzf $1 | grep  /$ | wc -l
+}
+
+function total_archived_files {
+        tar -tzf $1 | grep -v /$ | wc -l
+}
+
+tar -czf $output $input 2> /dev/null
+
+src_files=$( total_files $input )
+src_directories=$( total_directories $input )
+
+arch_files=$( total_archived_files $output )
+arch_directories=$( total_archived_directories $output )
+
+echo "Files to be included: $src_files"
+echo "Directories to be included: $src_directories"
+echo "Files archived: $arch_files"
+echo "Directories archived: $arch_directories"
+
+if [ $src_files -eq $arch_files ]; then
+        echo "Backup of $input completed!"
+        echo "Details about the output backup file:"
+        ls -l $output
+else
+        echo "Backup of $input failed!"
+fi
+
+######################################################################################################
+
+#!/bin/bash                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                               
+# This bash script is used to backup a user's home directory to /tmp/.                                                                                                                                                                                                         
+                                                                                                                                                                                                                                                                               
+if [ -z $1 ]; then                                                                                                                                                                                                                                                             
+        user=$(whoami)                                                                                                                                                                                                                                                         
+else                                                                                                                                                                                                                                                                           
+        if [ ! -d "/home/$1" ]; then                                                                                                                                                                                                                                           
+                echo "Requested $1 user home directory doesn't exist."                                                                                                                                                                                                         
+                exit 1                                                                                                                                                                                                                                                         
+        fi                                                                                                                                                                                                                                                                     
+        user=$1                                                                                                                                                                                                                                                                
+fi                                                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                               
+input=/home/$user                                                                                                                                                                                                                                                              
+output=/tmp/${user}_home_$(date +%Y-%m-%d_%H%M%S).tar.gz                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                                                               
+function total_files {                                                                                                                                                                                                                                                         
+        find $1 -type f | wc -l                                                                                                                                                                                                                                                
+}                                                                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                               
+function total_directories {                                                                                                                                                                                                                                                   
+        find $1 -type d | wc -l                                                                                                                                                                                                                                                
+}                                                                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                               
+function total_archived_directories {                                                                                                                                                                                                                                          
+        tar -tzf $1 | grep  /$ | wc -l                                                                                                                                                                                                                                         
+}                                                                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                               
+function total_archived_files {                                                                                                                                                                                                                                                
+        tar -tzf $1 | grep -v /$ | wc -l                                                                                                                                                                                                                                       
+}                                                                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                               
+tar -czf $output $input 2> /dev/null                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                                                               
+src_files=$( total_files $input )
+src_directories=$( total_directories $input )
+
+arch_files=$( total_archived_files $output )
+arch_directories=$( total_archived_directories $output )
+
+echo "Files to be included: $src_files"
+echo "Directories to be included: $src_directories"
+echo "Files archived: $arch_files"
+echo "Directories archived: $arch_directories"
+
+if [ $src_files -eq $arch_files ]; then
+        echo "Backup of $input completed!"
+        echo "Details about the output backup file:"
+        ls -l $output
+else
+        echo "Backup of $input failed!"
+fi
+
+########################################################################################################
+
+#!/bin/bash
+
+for i in 1 2 3; do
+    echo $i
+done
+
+#########################################################################################################
+
+#!/bin/bash
+  
+counter=0
+while [ $counter -lt 3 ]; do
+    let counter+=1
+    echo $counter
+done
+
+###########################################################################################################
+
+#!/bin/bash
+  
+counter=6
+until [ $counter -lt 3 ]; do
+    let counter-=1
+    echo $counter
+done
+
+#############################################################################################################
+
+#!/bin/bash
+
+echo "What is your name?"
+read PERSON
+echo "Hello, $PERSON"
+
+###############################################################################################################
+
+#!/bin/bash
+
+DATE=`date`
+echo "Date is $DATE"
+
+USERS=`who | wc -l`
+echo "Logged in user are $USERS"
+
+UP=`date ; uptime`
+echo "Uptime is $UP"
+
+#################################################################################################################
+
+#!/bin/sh
+
+echo ${var:-"Variable is not set"}
+echo "1 - Value of var is ${var}"
+
+echo ${var:="Variable is not set"}
+echo "2 - Value of var is ${var}"
+
+unset var
+echo ${var:+"This is default value"}
+echo "3 - Value of var is $var"
+
+var="Prefix"
+echo ${var:+"This is default value"}
+echo "4 - Value of var is $var"
+
+echo ${var:?"Print this message"}
+echo "5 - Value of var is ${var}"
+
+######################################################################################################################
+
+#!/bin/bash
+clear
+echo "Please enter your name"
+read name
+echo "Please enter your age"
+read age
+echo "Please enter your gender. Male/Female"
+read gender
+echo "So you're a $age year old $gender called $name"
+
+#########################################################################################################################
+
+if [ $fruit = apple ]
+        then echo "Good, I like Apples"
+elif [ $fruit = pear ]
+        then echo "Good, I like Pears"
+elif [ $fruit = banana ]
+        then echo "Good, I like Bananas"
+        else echo "Oh no, I hate Oranges!"
+fi
+
+
+
+
+
